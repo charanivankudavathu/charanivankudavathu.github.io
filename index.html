@@ -1,538 +1,2694 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CHARANI VANKUDAVATHU | Personal Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="Personal portfolio of Charani - Student, Developer and Technology Enthusiast">
+<title>CHARANI VANKUDAVATHU | Portfolio</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description"
+content="CHARANI VANKUDAVATHU - Computer Science Student, Developer and Technology Enthusiast">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Inter",sans-serif;
+    background:#050816;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+::selection{
+    background:#8b5cf6;
+    color:#fff;
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-10;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(124,58,237,.25),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(6,182,212,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(236,72,153,.15),
+            transparent 35%
+        ),
+        #050816;
+}
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-5;
+    pointer-events:none;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.35;
+    animation:moveBlob 12s infinite alternate ease-in-out;
+}
+
+.blob1{
+    width:400px;
+    height:400px;
+    background:#7c3aed;
+    top:-100px;
+    left:-100px;
+}
+
+.blob2{
+    width:450px;
+    height:450px;
+    background:#0891b2;
+    right:-150px;
+    top:35%;
+    animation-delay:2s;
+}
+
+.blob3{
+    width:350px;
+    height:350px;
+    background:#db2777;
+    bottom:-150px;
+    left:30%;
+    animation-delay:4s;
+}
+
+@keyframes moveBlob{
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+    100%{
+        transform:translate(80px,50px) scale(1.15);
+    }
+}
+
+
+/* =========================================================
+   GLASS EFFECT
+========================================================= */
+
+.glass{
+    background:rgba(255,255,255,.065);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.3),
+        inset 0 1px 1px rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+}
+
+.glass:hover{
+    border-color:rgba(167,139,250,.4);
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+    position:fixed;
+
+    top:18px;
+    left:4%;
+    right:4%;
+
+    height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 28px;
+
+    border-radius:22px;
+
+    z-index:1000;
+
+    transition:.3s;
+}
+
+.logo{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:28px;
+    font-weight:800;
+
+    letter-spacing:-2px;
+}
+
+.logo span{
+    color:#a78bfa;
+}
+
+.nav-links{
+    display:flex;
+    gap:32px;
+}
+
+.nav-links a{
+    color:#a1a1aa;
+    font-size:14px;
+    font-weight:500;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-7px;
+
+    width:0;
+    height:2px;
+
+    background:linear-gradient(
+        90deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.nav-button{
+    padding:11px 19px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #0891b2
+        );
+
+    font-size:13px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.nav-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(124,58,237,.35);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:
+        150px 35px
+        80px;
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    align-items:center;
+
+    gap:80px;
+}
+
+.hero-small{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    padding:9px 15px;
+
+    border-radius:30px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.05);
+
+    color:#c4b5fd;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+}
+
+.hero-small span{
+    width:8px;
+    height:8px;
+
+    background:#22c55e;
+
+    border-radius:50%;
+
+    box-shadow:0 0 12px #22c55e;
+}
+
+.hero h1{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:clamp(55px,7vw,100px);
+
+    line-height:.93;
+
+    letter-spacing:-5px;
+
+    font-weight:700;
+}
+
+.gradient-text{
+    background:
+        linear-gradient(
+            90deg,
+            #c4b5fd,
+            #22d3ee,
+            #f9a8d4
+        );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+    font-size:23px;
+
+    font-weight:500;
+
+    color:#d4d4d8;
+
+    margin-top:28px;
+}
+
+.hero-description{
+    max-width:620px;
+
+    color:#8f93a3;
+
+    line-height:1.8;
+
+    margin-top:20px;
+
+    font-size:15px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:14px;
+
+    margin-top:35px;
+}
+
+.primary-button{
+    padding:14px 23px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.primary-button:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(124,58,237,.3);
+}
+
+.secondary-button{
+    padding:14px 23px;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:rgba(255,255,255,.04);
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.secondary-button:hover{
+    background:rgba(255,255,255,.1);
+
+    transform:translateY(-4px);
+}
+
+.social-links{
+    display:flex;
+    gap:25px;
+
+    margin-top:35px;
+}
+
+.social-links a{
+    color:#777b8a;
+
+    font-size:13px;
+
+    transition:.3s;
+}
+
+.social-links a:hover{
+    color:#c4b5fd;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+.profile-area{
+    display:flex;
+    justify-content:center;
+
+    position:relative;
+}
+
+.profile-card{
+    width:350px;
+
+    padding:45px 30px;
+
+    border-radius:35px;
+
+    text-align:center;
+
+    position:relative;
+
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-18px);
+    }
+
+}
+
+.profile-ring{
+    width:190px;
+    height:190px;
+
+    padding:7px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #06b6d4,
+            #ec4899
+        );
+
+    animation:rotateRing 6s linear infinite;
+}
+
+@keyframes rotateRing{
+
+    0%{
+        transform:rotate(0);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
+
+}
+
+.avatar{
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:70px;
+    font-weight:700;
+
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            #312e81,
+            #111827
+        );
+
+    animation:rotateBack 6s linear infinite;
+}
+
+@keyframes rotateBack{
+
+    0%{
+        transform:rotate(0);
+    }
+
+    100%{
+        transform:rotate(-360deg);
+    }
+
+}
+
+.profile-card h3{
+    font-size:27px;
+
+    margin-top:25px;
+
+    font-family:"Space Grotesk",sans-serif;
+}
+
+.profile-card > p{
+    color:#8f93a3;
+
+    margin-top:8px;
+
+    font-size:14px;
+}
+
+.availability{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:22px;
+
+    padding:9px 15px;
+
+    border-radius:30px;
+
+    background:rgba(34,197,94,.08);
+
+    border:1px solid rgba(34,197,94,.18);
+
+    color:#86efac;
+
+    font-size:11px;
+}
+
+.availability i{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+    box-shadow:0 0 10px #22c55e;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+section{
+    scroll-margin-top:100px;
+}
+
+.section{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:110px 30px;
+}
+
+.section-heading{
+    text-align:center;
+
+    margin-bottom:60px;
+}
+
+.section-heading .mini{
+    color:#a78bfa;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+}
+
+.section-heading h2{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:48px;
+
+    margin-top:10px;
+
+    letter-spacing:-2px;
+}
+
+.section-heading h2 span{
+    color:#a78bfa;
+}
+
+.section-heading p{
+    max-width:600px;
+
+    margin:15px auto 0;
+
+    color:#777b8a;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:25px;
+}
+
+.about-card{
+    padding:38px;
+
+    border-radius:28px;
+
+    min-height:300px;
+}
+
+.about-card h3{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:25px;
+
+    margin-bottom:22px;
+}
+
+.about-card p{
+    color:#9195a4;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+}
+
+.goal{
+    display:flex;
+
+    align-items:center;
+
+    gap:17px;
+
+    padding:15px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.goal:last-child{
+    border-bottom:0;
+}
+
+.goal-number{
+    color:#a78bfa;
+
+    font-weight:700;
+
+    font-size:12px;
+}
+
+.goal p{
+    margin:0;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.skill-card{
+    padding:30px;
+
+    border-radius:24px;
+
+    transition:.4s;
+}
+
+.skill-card:hover{
+    transform:translateY(-8px);
+
+    background:
+        rgba(255,255,255,.09);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.3);
+}
+
+.skill-icon{
+    width:58px;
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:17px;
+
+    font-size:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139,92,246,.2),
+            rgba(6,182,212,.1)
+        );
+
+    border:
+        1px solid
+        rgba(167,139,250,.2);
+
+    margin-bottom:20px;
+}
+
+.skill-card h3{
+    font-size:18px;
+
+    margin-bottom:10px;
+}
+
+.skill-card p{
+    color:#777b8a;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.projects-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.project-card{
+    padding:30px;
+
+    border-radius:26px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.project-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:160px;
+    height:160px;
+
+    background:#7c3aed;
+
+    filter:blur(80px);
+
+    opacity:.15;
+
+    top:-80px;
+    right:-80px;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+
+    border-color:
+        rgba(139,92,246,.4);
+}
+
+.project-number{
+    color:#a78bfa;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:25px;
+}
+
+.project-card h3{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:23px;
+
+    margin-bottom:14px;
+}
+
+.project-card p{
+    color:#858998;
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.tags{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+    margin:22px 0;
+}
+
+.tags span{
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color:#b7bac5;
+
+    font-size:10px;
+}
+
+.project-link{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    color:#c4b5fd;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.project-link:hover{
+    gap:10px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+
+    margin-top:50px;
+}
+
+.stat{
+    text-align:center;
+
+    padding:28px 15px;
+
+    border-radius:22px;
+}
+
+.stat h3{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+.stat p{
+    color:#737786;
+
+    font-size:12px;
+
+    margin-top:5px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+    max-width:850px;
+
+    margin:auto;
+
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    left:16px;
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            #8b5cf6,
+            #06b6d4,
+            transparent
+        );
+}
+
+.timeline-item{
+    margin-bottom:25px;
+
+    margin-left:50px;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    position:relative;
+}
+
+.timeline-dot{
+    position:absolute;
+
+    left:-42px;
+    top:32px;
+
+    width:16px;
+    height:16px;
+
+    border-radius:50%;
+
+    background:#8b5cf6;
+
+    border:4px solid #111827;
+
+    box-shadow:
+        0 0 15px
+        rgba(139,92,246,.8);
+}
+
+.timeline-date{
+    color:#a78bfa;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+}
+
+.timeline-item h3{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:20px;
+
+    margin-bottom:10px;
+}
+
+.timeline-item p:last-child{
+    color:#858998;
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:25px;
+}
+
+.contact-info,
+.contact-form{
+    padding:38px;
+
+    border-radius:28px;
+}
+
+.contact-info h3{
+    font-family:"Space Grotesk",sans-serif;
+
+    font-size:29px;
+
+    margin-bottom:15px;
+}
+
+.contact-info > p{
+    color:#858998;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+}
+
+.contact-details{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+}
+
+.contact-detail{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.contact-detail-icon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+        rgba(139,92,246,.12);
+
+    border:
+        1px solid
+        rgba(139,92,246,.18);
+}
+
+.contact-detail-text small{
+    display:block;
+
+    color:#626675;
+
+    font-size:10px;
+
+    margin-bottom:3px;
+}
+
+.contact-detail-text span{
+    color:#d1d5db;
+
+    font-size:12px;
+}
+
+.contact-form{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.form-row{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:15px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:#fff;
+
+    padding:15px 16px;
+
+    border-radius:13px;
+
+    outline:none;
+
+    font-size:13px;
+
+    resize:none;
+
+    transition:.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#8b5cf6;
+
+    background:
+        rgba(255,255,255,.07);
+
+    box-shadow:
+        0 0 20px
+        rgba(139,92,246,.08);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+    color:#5f6371;
+}
+
+.submit-btn{
+    border:0;
+
+    color:#fff;
+
+    padding:15px;
+
+    border-radius:13px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    font-size:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #0891b2
+        );
+
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(124,58,237,.25);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:
+        0 30px
+        40px;
+}
+
+.footer{
+    padding:25px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#656978;
+
+    font-size:11px;
+}
+
+.footer span{
+    color:#a78bfa;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:950px){
+
+    .hero{
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:60px;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons,
+    .social-links{
+        justify-content:center;
+    }
+
+    .about-grid,
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .skills-grid,
+    .projects-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .profile-area{
+        margin-top:20px;
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .navbar{
+        left:12px;
+        right:12px;
+
+        padding:0 20px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .nav-button{
+        padding:10px 15px;
+    }
+
+    .hero{
+        padding:
+            140px 20px
+            70px;
+    }
+
+    .hero h1{
+        font-size:58px;
+
+        letter-spacing:-3px;
+    }
+
+    .hero h2{
+        font-size:18px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .primary-button,
+    .secondary-button{
+        width:100%;
+    }
+
+    .profile-card{
+        width:100%;
+        max-width:340px;
+    }
+
+    .section{
+        padding:
+            80px 20px;
+    }
+
+    .section-heading h2{
+        font-size:37px;
+    }
+
+    .skills-grid,
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+
+    .footer{
+        flex-direction:column;
+
+        gap:10px;
+
+        text-align:center;
+    }
+
+}
+
+
+@media(max-width:420px){
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .profile-ring{
+        width:160px;
+        height:160px;
+    }
+
+    .avatar{
+        font-size:55px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050816;
+}
+
+::-webkit-scrollbar-thumb{
+    background:
+        linear-gradient(
+            #7c3aed,
+            #06b6d4
+        );
+
+    border-radius:10px;
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-    <!-- Background -->
-    <div class="background">
-        <div class="blob blob1"></div>
-        <div class="blob blob2"></div>
-        <div class="blob blob3"></div>
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="blob blob1"></div>
+
+    <div class="blob blob2"></div>
+
+    <div class="blob blob3"></div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar glass">
+
+    <a href="#home" class="logo">
+        C<span>.</span>
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#education">Journey</a>
+
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <a href="#contact" class="nav-button">
+        Let's Talk
+    </a>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home" class="hero">
+
+
+    <div class="hero-content reveal">
+
+        <div class="hero-small">
+
+            <span></span>
+
+            Available for opportunities
+
+        </div>
+
+
+        <h1>
+
+            CHARANI
+
+            <br>
+
+            <span class="gradient-text">
+                VANKUDAVATHU
+            </span>
+
+        </h1>
+
+
+        <h2>
+            Computer Science Student & Developer
+        </h2>
+
+
+        <p class="hero-description">
+
+            I create modern websites, applications and
+            technology-driven projects while continuously
+            learning new skills. I enjoy turning ideas into
+            clean, interactive and meaningful digital
+            experiences.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#projects"
+                class="primary-button"
+            >
+                View My Work →
+            </a>
+
+
+            <a
+                href="#contact"
+                class="secondary-button"
+            >
+                Contact Me
+            </a>
+
+        </div>
+
+
+        <div class="social-links">
+
+            <a href="#" target="_blank">
+                GitHub ↗
+            </a>
+
+            <a href="#" target="_blank">
+                LinkedIn ↗
+            </a>
+
+            <a href="#" target="_blank">
+                Instagram ↗
+            </a>
+
+        </div>
+
     </div>
 
-    <!-- Navigation -->
-    <header class="navbar glass">
-
-        <a href="#home" class="logo">
-            C<span>.</span>
-        </a>
-
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <a href="#contact" class="nav-btn">
-            Let's Talk
-        </a>
-
-    </header>
 
 
-    <!-- HOME -->
-    <section id="home" class="hero">
+    <!-- PROFILE -->
 
-        <div class="hero-content">
+    <div class="profile-area reveal">
 
-            <p class="small-text">
-                👋 Hello, I'm
+        <div class="profile-card glass">
+
+            <div class="profile-ring">
+
+                <div class="avatar">
+                    C
+                </div>
+
+            </div>
+
+
+            <h3>
+                CHARANI
+            </h3>
+
+
+            <p>
+                Developer • Student • Creator
             </p>
 
-            <h1>
-                CHARANI <br>
-                <span>VANKUDAVATHU </span>
-            </h1>
 
-            <h2>
-                Computer Science Student & Developer
-            </h2>
+            <div class="availability">
 
-            <p class="hero-description">
-                I create modern websites, applications and
-                technology-driven projects while continuously
-                learning new skills.
+                <i></i>
+
+                Open to opportunities
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about" class="section">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            GET TO KNOW ME
+        </div>
+
+        <h2>
+            About <span>Me</span>
+        </h2>
+
+        <p>
+            A little introduction about who I am,
+            what I enjoy and where I want to go.
+        </p>
+
+    </div>
+
+
+
+    <div class="about-grid">
+
+
+        <div class="glass about-card reveal">
+
+            <h3>
+                Who I Am
+            </h3>
+
+            <p>
+
+                I am a Computer Science student passionate
+                about software development, web technologies,
+                cybersecurity and problem solving.
+
             </p>
 
-            <div class="hero-buttons">
+            <p>
 
-                <a href="#projects" class="primary-btn">
-                    View My Work →
-                </a>
+                I enjoy building projects that combine
+                creativity, technology and user-friendly
+                design.
 
-                <a href="#contact" class="secondary-btn">
-                    Contact Me
-                </a>
+            </p>
 
-            </div>
+            <p>
 
-            <div class="socials">
+                My goal is to continuously improve my
+                technical knowledge and create useful
+                real-world applications.
 
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Instagram</a>
-
-            </div>
+            </p>
 
         </div>
 
 
-        <!-- Profile Card -->
-        <div class="profile-container">
 
-            <div class="profile-card glass">
+        <div class="glass about-card reveal">
 
-                <div class="profile-image">
-                    <div class="avatar">
-                        C
-                    </div>
-                </div>
-
-                <h3>
-                  CHARANI 
-                </h3>
-
-                <p>
-                    Developer • Student • Creator
-                </p>
-
-                <div class="status">
-                    <span></span>
-                    Available for opportunities
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+            <h3>
+                My Goals
+            </h3>
 
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
+            <div class="goal">
 
-        <div class="section-title">
-            <p>GET TO KNOW ME</p>
-            <h2>About <span>Me</span></h2>
-        </div>
-
-        <div class="about-grid">
-
-            <div class="glass about-card">
-
-                <h3>Who I Am</h3>
-
-                <p>
-                    I am a Computer Science student passionate about
-                    software development, web technologies,
-                    cybersecurity and problem solving.
-                </p>
-
-                <p>
-                    I enjoy building projects that combine
-                    creativity, technology and user-friendly design.
-                </p>
-
-            </div>
-
-
-            <div class="glass about-card">
-
-                <h3>My Goals</h3>
-
-                <div class="goal">
-                    <span>01</span>
-                    <p>Improve programming skills</p>
-                </div>
-
-                <div class="goal">
-                    <span>02</span>
-                    <p>Build real-world projects</p>
-                </div>
-
-                <div class="goal">
-                    <span>03</span>
-                    <p>Explore cybersecurity</p>
-                </div>
-
-                <div class="goal">
-                    <span>04</span>
-                    <p>Become a professional developer</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-
-        <div class="section-title">
-
-            <p>WHAT I KNOW</p>
-
-            <h2>
-                My <span>Skills</span>
-            </h2>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-            <div class="glass skill-card">
-                <div class="skill-icon">C</div>
-                <h3>C Programming</h3>
-                <p>Programming fundamentals & Data Structures</p>
-            </div>
-
-            <div class="glass skill-card">
-                <div class="skill-icon">🐍</div>
-                <h3>Python</h3>
-                <p>Programming, automation & applications</p>
-            </div>
-
-            <div class="glass skill-card">
-                <div class="skill-icon">🌐</div>
-                <h3>Web Development</h3>
-                <p>HTML, CSS, JavaScript & responsive design</p>
-            </div>
-
-            <div class="glass skill-card">
-                <div class="skill-icon">🗄️</div>
-                <h3>Database</h3>
-                <p>Database concepts & SQL</p>
-            </div>
-
-            <div class="glass skill-card">
-                <div class="skill-icon">🔐</div>
-                <h3>Cybersecurity</h3>
-                <p>Security awareness & basic security concepts</p>
-            </div>
-
-            <div class="glass skill-card">
-                <div class="skill-icon">🐙</div>
-                <h3>Git & GitHub</h3>
-                <p>Version control & project deployment</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-
-        <div class="section-title">
-
-            <p>MY RECENT WORK</p>
-
-            <h2>
-                Featured <span>Projects</span>
-            </h2>
-
-        </div>
-
-
-        <div class="projects-grid">
-
-
-            <div class="glass project-card">
-
-                <div class="project-number">
+                <span class="goal-number">
                     01
-                </div>
-
-                <h3>
-                    Royal Paradise Hotel
-                </h3>
+                </span>
 
                 <p>
-                    A responsive hotel website with rooms,
-                    gallery, restaurant menu, booking system
-                    and contact section.
+                    Improve programming skills
                 </p>
-
-                <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Netlify</span>
-                </div>
-
-                <a href="#" class="project-link">
-                    View Project →
-                </a>
 
             </div>
 
 
-            <div class="glass project-card">
+            <div class="goal">
 
-                <div class="project-number">
+                <span class="goal-number">
                     02
-                </div>
-
-                <h3>
-                    Travel Website
-                </h3>
+                </span>
 
                 <p>
-                    A modern travel website featuring
-                    destinations, travel packages,
-                    gallery and booking contact form.
+                    Build real-world projects
                 </p>
-
-                <div class="tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-
-                <a href="#" class="project-link">
-                    View Project →
-                </a>
 
             </div>
 
 
-            <div class="glass project-card">
+            <div class="goal">
 
-                <div class="project-number">
+                <span class="goal-number">
                     03
-                </div>
-
-                <h3>
-                    Mini Encryption Tool
-                </h3>
+                </span>
 
                 <p>
-                    A Python package implementing simple
-                    encryption and encoding techniques.
-                </p>
-
-                <div class="tags">
-                    <span>Python</span>
-                    <span>Packages</span>
-                    <span>GitHub</span>
-                </div>
-
-                <a href="#" class="project-link">
-                    View Project →
-                </a>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- EDUCATION -->
-    <section class="section">
-
-        <div class="section-title">
-
-            <p>MY JOURNEY</p>
-
-            <h2>
-                Education & <span>Experience</span>
-            </h2>
-
-        </div>
-
-
-        <div class="timeline">
-
-            <div class="glass timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <p class="date">
-                    2025 – Present
-                </p>
-
-                <h3>
-                    B.Tech Computer Science
-                </h3>
-
-                <p>
-                    Studying computer science fundamentals,
-                    programming, data structures and
-                    modern technologies.
+                    Explore cybersecurity
                 </p>
 
             </div>
 
 
-            <div class="glass timeline-item">
+            <div class="goal">
 
-                <div class="timeline-dot"></div>
-
-                <p class="date">
-                    2026
-                </p>
-
-                <h3>
-                    Web Development Projects
-                </h3>
+                <span class="goal-number">
+                    04
+                </span>
 
                 <p>
-                    Designed and deployed responsive websites
-                    using HTML, CSS and JavaScript.
-                </p>
-
-            </div>
-
-
-            <div class="glass timeline-item">
-
-                <div class="timeline-dot"></div>
-
-                <p class="date">
-                    2026
-                </p>
-
-                <h3>
-                    Python Development
-                </h3>
-
-                <p>
-                    Developed Python packages and practiced
-                    modular programming and software development.
+                    Become a professional developer
                 </p>
 
             </div>
 
         </div>
 
-    </section>
+
+    </div>
 
 
-    <!-- CONTACT -->
-    <section id="contact" class="section contact-section">
+</section>
 
-        <div class="section-title">
 
-            <p>GET IN TOUCH</p>
 
-            <h2>
-                Let's <span>Connect</span>
-            </h2>
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills" class="section">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            WHAT I KNOW
+        </div>
+
+        <h2>
+            My <span>Skills</span>
+        </h2>
+
+        <p>
+            Technologies and areas I am learning
+            and working with.
+        </p>
+
+    </div>
+
+
+
+    <div class="skills-grid">
+
+
+        <div class="glass skill-card reveal">
+
+            <div class="skill-icon">
+                C
+            </div>
+
+            <h3>
+                C Programming
+            </h3>
+
+            <p>
+                Programming fundamentals,
+                pointers, functions and
+                data structures.
+            </p>
 
         </div>
 
 
-        <div class="contact-container">
 
-            <div class="glass contact-info">
+        <div class="glass skill-card reveal">
 
-                <h3>
-                    Have a project in mind?
-                </h3>
+            <div class="skill-icon">
+                🐍
+            </div>
 
-                <p>
-                    I'm always interested in learning,
-                    collaborating and building something
-                    meaningful.
-                </p>
+            <h3>
+                Python
+            </h3>
 
-                <div class="contact-item">
-                    📧
-                    <span>
-                        charanivankudavathu@gmail.com
-                    </span>
-                </div>
+            <p>
+                Python programming,
+                modular applications and
+                package development.
+            </p>
 
-                <div class="contact-item">
-                    📍
-                    <span>
-                        India
-                    </span>
-                </div>
+        </div>
+
+
+
+        <div class="glass skill-card reveal">
+
+            <div class="skill-icon">
+                🌐
+            </div>
+
+            <h3>
+                Web Development
+            </h3>
+
+            <p>
+                HTML, CSS, JavaScript,
+                responsive design and
+                modern UI development.
+            </p>
+
+        </div>
+
+
+
+        <div class="glass skill-card reveal">
+
+            <div class="skill-icon">
+                🗄️
+            </div>
+
+            <h3>
+                Database
+            </h3>
+
+            <p>
+                Database concepts,
+                SQL and data management
+                fundamentals.
+            </p>
+
+        </div>
+
+
+
+        <div class="glass skill-card reveal">
+
+            <div class="skill-icon">
+                🔐
+            </div>
+
+            <h3>
+                Cybersecurity
+            </h3>
+
+            <p>
+                Security awareness,
+                cybersecurity concepts
+                and secure practices.
+            </p>
+
+        </div>
+
+
+
+        <div class="glass skill-card reveal">
+
+            <div class="skill-icon">
+                🐙
+            </div>
+
+            <h3>
+                Git & GitHub
+            </h3>
+
+            <p>
+                Version control,
+                repositories and
+                project deployment.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="section">
+
+
+    <div class="stats">
+
+
+        <div class="glass stat reveal">
+
+            <h3>
+                03+
+            </h3>
+
+            <p>
+                Projects
+            </p>
+
+        </div>
+
+
+        <div class="glass stat reveal">
+
+            <h3>
+                06+
+            </h3>
+
+            <p>
+                Skills
+            </p>
+
+        </div>
+
+
+        <div class="glass stat reveal">
+
+            <h3>
+                01+
+            </h3>
+
+            <p>
+                Years Learning
+            </p>
+
+        </div>
+
+
+        <div class="glass stat reveal">
+
+            <h3>
+                ∞
+            </h3>
+
+            <p>
+                Curiosity
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects" class="section">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            MY RECENT WORK
+        </div>
+
+        <h2>
+            Featured <span>Projects</span>
+        </h2>
+
+        <p>
+            Some of the projects I have designed,
+            developed and experimented with.
+        </p>
+
+    </div>
+
+
+
+    <div class="projects-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="glass project-card reveal">
+
+            <div class="project-number">
+                PROJECT 01
+            </div>
+
+            <h3>
+                Royal Paradise Hotel
+            </h3>
+
+            <p>
+
+                A responsive hotel website featuring
+                rooms, gallery, restaurant menu,
+                booking system and contact section.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+                <span>Netlify</span>
 
             </div>
 
 
-            <form class="glass contact-form">
+            <a
+                href="https://royalparadise-hotel.netlify.app"
+                target="_blank"
+                class="project-link"
+            >
+                View Live Project →
+            </a>
+
+        </div>
+
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="glass project-card reveal">
+
+            <div class="project-number">
+                PROJECT 02
+            </div>
+
+            <h3>
+                Travel Website
+            </h3>
+
+            <p>
+
+                A modern travel website featuring
+                destinations, travel packages,
+                gallery and booking contact form.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+                <span>Responsive</span>
+
+            </div>
+
+
+            <a
+                href="#contact"
+                class="project-link"
+            >
+                View Project →
+            </a>
+
+        </div>
+
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="glass project-card reveal">
+
+            <div class="project-number">
+                PROJECT 03
+            </div>
+
+            <h3>
+                Mini Encryption Tool
+            </h3>
+
+            <p>
+
+                A Python package implementing
+                Caesar Cipher, Reverse Cipher
+                and Binary Encoding techniques.
+
+            </p>
+
+
+            <div class="tags">
+
+                <span>Python</span>
+
+                <span>Encryption</span>
+
+                <span>Package</span>
+
+                <span>GitHub</span>
+
+            </div>
+
+
+            <a
+                href="#contact"
+                class="project-link"
+            >
+                View Project →
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     EDUCATION & JOURNEY
+===================================================== -->
+
+<section id="education" class="section">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            MY JOURNEY
+        </div>
+
+        <h2>
+            Education & <span>Experience</span>
+        </h2>
+
+        <p>
+            My learning journey and development experience.
+        </p>
+
+    </div>
+
+
+
+    <div class="timeline">
+
+
+        <div class="glass timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2025 – PRESENT
+            </div>
+
+            <h3>
+                B.Tech Computer Science
+            </h3>
+
+            <p>
+
+                Studying computer science fundamentals,
+                programming, data structures and
+                modern technologies.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="glass timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2026
+            </div>
+
+            <h3>
+                Web Development Projects
+            </h3>
+
+            <p>
+
+                Designed and developed responsive websites
+                using HTML, CSS and JavaScript and worked
+                with modern deployment platforms.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="glass timeline-item reveal">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-date">
+                2026
+            </div>
+
+            <h3>
+                Python Development
+            </h3>
+
+            <p>
+
+                Developed Python packages and practiced
+                modular programming, package installation
+                and software development.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact" class="section">
+
+
+    <div class="section-heading reveal">
+
+        <div class="mini">
+            GET IN TOUCH
+        </div>
+
+        <h2>
+            Let's <span>Connect</span>
+        </h2>
+
+        <p>
+            Have an idea, opportunity or project?
+            Feel free to reach out.
+        </p>
+
+    </div>
+
+
+
+    <div class="contact-grid">
+
+
+        <!-- CONTACT INFO -->
+
+        <div class="glass contact-info reveal">
+
+            <h3>
+                Let's build something amazing.
+            </h3>
+
+            <p>
+
+                I'm always interested in learning,
+                collaborating and building something
+                meaningful with technology.
+
+            </p>
+
+
+            <div class="contact-details">
+
+
+                <div class="contact-detail">
+
+                    <div class="contact-detail-icon">
+                        📧
+                    </div>
+
+                    <div class="contact-detail-text">
+
+                        <small>
+                            EMAIL
+                        </small>
+
+                        <span>
+                            charanivankudavathu@gmail.com
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-detail">
+
+                    <div class="contact-detail-icon">
+                        📍
+                    </div>
+
+                    <div class="contact-detail-text">
+
+                        <small>
+                            LOCATION
+                        </small>
+
+                        <span>
+                            India
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-detail">
+
+                    <div class="contact-detail-icon">
+                        💻
+                    </div>
+
+                    <div class="contact-detail-text">
+
+                        <small>
+                            INTERESTS
+                        </small>
+
+                        <span>
+                            Development • Cybersecurity • Technology
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form
+            class="glass contact-form reveal"
+            id="contactForm"
+        >
+
+
+            <div class="form-row">
 
                 <input
                     type="text"
+                    id="name"
                     placeholder="Your Name"
                     required
                 >
 
                 <input
                     type="email"
+                    id="email"
                     placeholder="Your Email"
                     required
                 >
 
-                <input
-                    type="text"
-                    placeholder="Subject"
-                >
-
-                <textarea
-                    rows="6"
-                    placeholder="Your Message"
-                    required
-                ></textarea>
-
-                <button type="submit">
-                    Send Message →
-                </button>
-
-            </form>
-
-        </div>
-
-    </section>
+            </div>
 
 
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="glass footer-box">
-
-            <p>
-                © 2026 Charani. All Rights Reserved.
-            </p>
-
-            <p>
-                Designed with ✨ Glassmorphism
-            </p>
-
-        </div>
-
-    </footer>
+            <input
+                type="text"
+                id="subject"
+                placeholder="Subject"
+                required
+            >
 
 
-    <script src="script.js"></script>
+            <textarea
+                id="message"
+                rows="7"
+                placeholder="Write your message..."
+                required
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="submit-btn"
+            >
+                Send Message →
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="glass footer">
+
+        <p>
+            © 2026 CHARANI VANKUDAVATH.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Designed with
+            <span>♥ Glassmorphism</span>
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:0.12
+    }
+
+);
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+
+/* =====================================================
+   NAVBAR SCROLL EFFECT
+===================================================== */
+
+const navbar =
+document.querySelector(".navbar");
+
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 50){
+
+        navbar.style.background =
+            "rgba(10,10,25,.75)";
+
+        navbar.style.boxShadow =
+            "0 15px 40px rgba(0,0,0,.3)";
+
+    }else{
+
+        navbar.style.background =
+            "rgba(255,255,255,.065)";
+
+        navbar.style.boxShadow =
+            "0 20px 60px rgba(0,0,0,.3)";
+
+    }
+
+});
+
+
+
+/* =====================================================
+   CONTACT FORM
+===================================================== */
+
+const contactForm =
+document.getElementById("contactForm");
+
+
+contactForm.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const name =
+            document.getElementById("name").value;
+
+        const email =
+            document.getElementById("email").value;
+
+        const subject =
+            document.getElementById("subject").value;
+
+        const message =
+            document.getElementById("message").value;
+
+
+        if(
+            !name ||
+            !email ||
+            !subject ||
+            !message
+        ){
+
+            alert(
+                "Please fill in all fields."
+            );
+
+            return;
+
+        }
+
+
+        const mailBody =
+            `Name: ${name}%0D%0A%0D%0A` +
+            `Email: ${email}%0D%0A%0D%0A` +
+            `Message:%0D%0A${message}`;
+
+
+        window.location.href =
+            `mailto:charanivankudavathu@gmail.com` +
+            `?subject=${encodeURIComponent(subject)}` +
+            `&body=${mailBody}`;
+
+
+    }
+);
+
+
+
+/* =====================================================
+   ACTIVE NAVIGATION
+===================================================== */
+
+const sections =
+document.querySelectorAll("section[id]");
+
+const navLinks =
+document.querySelectorAll(".nav-links a");
+
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 150;
+
+        if(
+            window.scrollY >= sectionTop
+        ){
+
+            current =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+        link.style.color = "";
+
+        if(
+            link.getAttribute("href") ===
+            "#" + current
+        ){
+
+            link.style.color =
+                "#c4b5fd";
+
+        }
+
+    });
+
+});
+
+
+</script>
+
 
 </body>
 </html>
