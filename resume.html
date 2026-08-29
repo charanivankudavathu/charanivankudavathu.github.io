@@ -25,15 +25,13 @@
         body {
             font-family: "Inter", sans-serif;
             background: #050816;
-            color: #ffffff;
+            color: white;
             min-height: 100vh;
             padding: 30px 15px;
             overflow-x: hidden;
         }
 
-        /* ================================
-           BACKGROUND
-        ================================= */
+        /* ================= BACKGROUND ================= */
 
         body::before {
             content: "";
@@ -90,7 +88,6 @@
         }
 
         @keyframes moveBlob {
-
             from {
                 transform: translate(0, 0) scale(1);
             }
@@ -98,12 +95,9 @@
             to {
                 transform: translate(70px, 50px) scale(1.15);
             }
-
         }
 
-        /* ================================
-           ACTION BUTTONS
-        ================================= */
+        /* ================= BUTTONS ================= */
 
         .actions {
             max-width: 1050px;
@@ -142,9 +136,7 @@
             background: linear-gradient(135deg, #7c3aed, #0891b2);
         }
 
-        /* ================================
-           RESUME
-        ================================= */
+        /* ================= RESUME ================= */
 
         .resume-wrapper {
             width: 100%;
@@ -158,17 +150,13 @@
             box-shadow:
                 0 25px 80px rgba(0, 0, 0, 0.35),
                 inset 0 1px 1px rgba(255, 255, 255, 0.10);
-
             backdrop-filter: blur(22px);
             -webkit-backdrop-filter: blur(22px);
-
             border-radius: 28px;
             overflow: hidden;
         }
 
-        /* ================================
-           HEADER
-        ================================= */
+        /* ================= HEADER ================= */
 
         .top {
             padding: 45px 50px;
@@ -227,7 +215,6 @@
                 #22d3ee,
                 #f9a8d4
             );
-
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -250,12 +237,12 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            min-width: 260px;
+            min-width: 300px;
         }
 
-        .contact-top div,
-        .contact-top a {
-            padding: 10px 13px;
+        .contact-top a,
+        .contact-top div {
+            padding: 11px 14px;
             border: 1px solid rgba(255, 255, 255, 0.10);
             background: rgba(255, 255, 255, 0.04);
             border-radius: 10px;
@@ -263,11 +250,16 @@
             font-size: 11px;
             text-decoration: none;
             word-break: break-word;
+            transition: 0.3s;
         }
 
-        /* ================================
-           CONTENT
-        ================================= */
+        .contact-top a:hover {
+            border-color: rgba(167, 139, 250, 0.5);
+            color: white;
+            transform: translateX(3px);
+        }
+
+        /* ================= CONTENT ================= */
 
         .content {
             padding: 40px 50px 50px;
@@ -325,48 +317,34 @@
             font-size: 13px;
         }
 
-        /* ================================
-           EDUCATION
-        ================================= */
+        /* ================= EDUCATION ================= */
 
         .education-item {
             display: flex;
             justify-content: space-between;
             gap: 20px;
             padding: 18px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .education-item:first-child {
-            padding-top: 0;
-        }
-
-        .education-item:last-child {
-            padding-bottom: 0;
-            border-bottom: none;
         }
 
         .education-item h3 {
-            font-size: 14px;
-            margin-bottom: 6px;
+            font-size: 15px;
+            margin-bottom: 7px;
         }
 
         .education-item p {
             color: #858998;
-            font-size: 11px;
-            line-height: 1.6;
+            font-size: 12px;
+            line-height: 1.7;
         }
 
         .year {
             color: #a78bfa;
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
             white-space: nowrap;
         }
 
-        /* ================================
-           SKILLS
-        ================================= */
+        /* ================= SKILLS ================= */
 
         .skills-grid {
             display: grid;
@@ -399,9 +377,7 @@
             line-height: 1.7;
         }
 
-        /* ================================
-           PROJECTS
-        ================================= */
+        /* ================= PROJECTS ================= */
 
         .project {
             padding: 20px 0;
@@ -434,9 +410,7 @@
             line-height: 1.75;
         }
 
-        /* ================================
-           LIST
-        ================================= */
+        /* ================= LIST ================= */
 
         .resume-list {
             list-style: none;
@@ -458,9 +432,7 @@
             font-size: 10px;
         }
 
-        /* ================================
-           FOOTER
-        ================================= */
+        /* ================= FOOTER ================= */
 
         .resume-footer {
             padding: 25px 50px;
@@ -476,9 +448,7 @@
             color: #a78bfa;
         }
 
-        /* ================================
-           MOBILE
-        ================================= */
+        /* ================= MOBILE ================= */
 
         @media (max-width: 700px) {
 
@@ -512,7 +482,7 @@
 
             .education-item {
                 flex-direction: column;
-                gap: 8px;
+                gap: 10px;
             }
 
             .resume-footer {
@@ -523,9 +493,7 @@
 
         }
 
-        /* ================================
-           PRINT / PDF
-        ================================= */
+        /* ================= PRINT ================= */
 
         @media print {
 
@@ -571,7 +539,7 @@
     </div>
 
 
-    <!-- BUTTONS -->
+    <!-- TOP BUTTONS -->
 
     <div class="actions">
 
@@ -579,12 +547,14 @@
             ← Back to Portfolio
         </a>
 
-        <button onclick="downloadResume()" class="action-btn primary-btn">
+        <button onclick="window.print()" class="action-btn primary-btn">
             Save as PDF
         </button>
 
     </div>
 
+
+    <!-- RESUME -->
 
     <div class="resume-wrapper">
 
@@ -595,7 +565,7 @@
             <header class="top">
 
                 <a href="index.html" class="portfolio-link">
-                    ← charanivankudavathu.github.io
+                    ← Back to charanivankudavathu.github.io
                 </a>
 
                 <div class="header-content">
@@ -612,29 +582,33 @@
                         </p>
 
                         <p class="website">
-                            charanivankudavathu.github.io
+                            Currently Studying in 2nd Year
                         </p>
 
                     </div>
 
 
-                    <!-- CONTACT DETAILS -->
-                    <!-- Replace these details with your exact details -->
+                    <!-- CONTACT -->
 
                     <div class="contact-top">
 
-                        <div>📍 India</div>
-
-                        <a href="mailto:your-email@example.com">
-                            ✉️ Add your Email
+                        <a href="mailto:charanivankudavathu@gmail.com">
+                            ✉️ charanivankudavathu@gmail.com
                         </a>
 
-                        <a href="https://github.com/charanivankudavathu" target="_blank">
-                            💻 github.com/charanivankudavathu
+                        <a href="https://github.com/charanivankudavathu"
+                           target="_blank">
+                            💻 GitHub: charanivankudavathu
                         </a>
 
-                        <a href="#" target="_blank">
-                            💼 Add your LinkedIn
+                        <a href="https://www.linkedin.com/in/charani-vankudavathu-394984384/"
+                           target="_blank">
+                            💼 LinkedIn: Charani Vankudavathu
+                        </a>
+
+                        <a href="https://charanivankudavathu.github.io"
+                           target="_blank">
+                            🌐 Portfolio Website
                         </a>
 
                     </div>
@@ -647,7 +621,7 @@
             <div class="content">
 
 
-                <!-- 01 CAREER OBJECTIVE -->
+                <!-- 01 OBJECTIVE -->
 
                 <section class="section">
 
@@ -659,13 +633,12 @@
                     <div class="glass-box">
 
                         <p class="objective">
-                            Motivated B.Tech student with a strong interest in
-                            technology, programming, web development, data analysis
-                            and problem solving. I am continuously improving my
-                            technical and practical skills by building projects and
-                            learning new technologies. My goal is to apply my
-                            knowledge to real-world problems and grow as a skilled
-                            technology professional.
+                            Motivated second-year B.Tech student with a strong interest
+                            in technology, programming, web development, data analysis
+                            and problem solving. I continuously improve my technical and
+                            practical skills by building projects and learning new
+                            technologies. My goal is to apply my knowledge to real-world
+                            problems and grow as a skilled technology professional.
                         </p>
 
                     </div>
@@ -688,7 +661,9 @@
 
                             <div>
 
-                                <h3>Bachelor of Technology</h3>
+                                <h3>
+                                    Bachelor of Technology — B.Tech
+                                </h3>
 
                                 <p>
                                     Computer Science & Data Science
@@ -701,7 +676,8 @@
                             </div>
 
                             <div class="year">
-                                Currently Pursuing
+                                2nd Year<br>
+                                Currently Studying
                             </div>
 
                         </div>
@@ -711,7 +687,7 @@
                 </section>
 
 
-                <!-- 03 TECHNICAL SKILLS -->
+                <!-- 03 SKILLS -->
 
                 <section class="section">
 
@@ -720,51 +696,29 @@
                         <h2>Technical <span>Skills</span></h2>
                     </div>
 
-
                     <div class="skills-grid">
 
                         <div class="skill-box">
-
                             <h3>Programming</h3>
-
-                            <p>
-                                C, Python, Java
-                            </p>
-
+                            <p>C, Python, Java</p>
                         </div>
 
-
                         <div class="skill-box">
-
                             <h3>Web Development</h3>
-
-                            <p>
-                                HTML, CSS, JavaScript
-                            </p>
-
+                            <p>HTML, CSS, JavaScript</p>
                         </div>
 
-
                         <div class="skill-box">
-
                             <h3>Tools & Platforms</h3>
-
-                            <p>
-                                Git, GitHub, VS Code, Power BI
-                            </p>
-
+                            <p>Git, GitHub, VS Code, Power BI</p>
                         </div>
 
-
                         <div class="skill-box">
-
                             <h3>Areas of Interest</h3>
-
                             <p>
                                 Web Development, Data Analysis,
                                 Artificial Intelligence, Problem Solving
                             </p>
-
                         </div>
 
                     </div>
@@ -781,24 +735,23 @@
                         <h2>My <span>Projects</span></h2>
                     </div>
 
-
                     <div class="glass-box">
 
                         <div class="project">
 
                             <h3>
-                                Portfolio Website
+                                Personal Portfolio Website
                                 <span> • HTML / CSS / JavaScript</span>
                             </h3>
 
                             <p>
-                                Designed and developed a personal portfolio website
-                                to showcase my skills, projects and professional
-                                information with a modern responsive user interface.
+                                Designed and developed a modern personal portfolio
+                                website to showcase my skills, projects and
+                                professional information with a responsive
+                                glassmorphism user interface.
                             </p>
 
                         </div>
-
 
                         <div class="project">
 
@@ -808,12 +761,12 @@
                             </h3>
 
                             <p>
-                                Developed a web-based project focused on helping
-                                students manage and track attendance information.
+                                Developed a web-based application focused on helping
+                                students manage and track attendance information in
+                                a simple and user-friendly way.
                             </p>
 
                         </div>
-
 
                         <div class="project">
 
@@ -823,8 +776,8 @@
                             </h3>
 
                             <p>
-                                Created interactive dashboards and visualizations
-                                to present data clearly and help users understand
+                                Created interactive dashboards and visualizations to
+                                present data clearly and help users understand
                                 important insights.
                             </p>
 
@@ -835,15 +788,14 @@
                 </section>
 
 
-                <!-- 05 CERTIFICATIONS -->
+                <!-- 05 LEARNING -->
 
                 <section class="section">
 
                     <div class="section-title">
                         <div class="number">05</div>
-                        <h2>Learning <span>& Certifications</span></h2>
+                        <h2>Learning <span>& Development</span></h2>
                     </div>
-
 
                     <div class="glass-box">
 
@@ -877,19 +829,14 @@
                         <h2>Personal <span>Strengths</span></h2>
                     </div>
 
-
                     <div class="glass-box">
 
                         <ul class="resume-list">
 
                             <li>Problem Solving</li>
-
                             <li>Quick Learner</li>
-
                             <li>Team Collaboration</li>
-
                             <li>Adaptability</li>
-
                             <li>Continuous Learning</li>
 
                         </ul>
@@ -907,7 +854,6 @@
                         <div class="number">07</div>
                         <h2>Languages <span>Known</span></h2>
                     </div>
-
 
                     <div class="glass-box">
 
@@ -927,13 +873,11 @@
             <footer class="resume-footer">
 
                 <p>
-                    © 2026
-                    <span>Charani Vankudavathu</span>
+                    © 2026 <span>Charani Vankudavathu</span>
                 </p>
 
                 <p>
-                    Built with a
-                    <span>Glassmorphism Design</span>
+                    Built with <span>Glassmorphism Design</span>
                 </p>
 
             </footer>
@@ -947,14 +891,8 @@
 
     <script>
 
-        function downloadResume() {
-            window.print();
-        }
-
         document.addEventListener("DOMContentLoaded", function () {
-
-            console.log("Charani Resume loaded successfully!");
-
+            console.log("Charani Vankudavathu Resume Loaded Successfully!");
         });
 
     </script>
