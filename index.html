@@ -1608,6 +1608,154 @@ footer{
     }
 
 }
+/* ===============================
+   FREELANCE CARD
+================================ */
+
+.freelance-card {
+    margin-top: 25px;
+    padding: 22px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: 0.3s ease;
+}
+
+.freelance-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(167, 139, 250, 0.45);
+    box-shadow: 0 15px 40px rgba(124, 58, 237, 0.15);
+}
+
+.freelance-icon {
+    min-width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(124, 58, 237, 0.7),
+        rgba(6, 182, 212, 0.7)
+    );
+
+    font-size: 20px;
+}
+
+.freelance-label {
+    display: inline-block;
+    margin-bottom: 8px;
+
+    color: #22d3ee;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.freelance-card h3 {
+    font-size: 18px;
+    margin-bottom: 9px;
+    color: #ffffff;
+}
+
+.freelance-card p {
+    color: #a4a8b6;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+
+    .freelance-card {
+        flex-direction: column;
+    }
+
+}
+/* =====================================================
+   STRENGTHS SECTION
+===================================================== */
+
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+.strength-card {
+    padding: 25px;
+    min-height: 210px;
+    transition: 0.3s ease;
+}
+
+
+.strength-card:hover {
+    transform: translateY(-7px);
+}
+
+
+.strength-number {
+    display: block;
+    margin-bottom: 22px;
+
+    color: #a78bfa;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+.strength-card h3 {
+    color: white;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+
+.strength-card p {
+    color: #a4a8b6;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .strengths-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .strengths-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .strength-card {
+        min-height: auto;
+    }
+
+}
 </style>
 
 </head>
@@ -1650,7 +1798,9 @@ footer{
         <a href="#skills">Skills</a>
 
         <a href="#projects">Projects</a>
-       
+        
+        <a href="strengths">Strengths</a>
+        
         <a href="resume.html">Resume</a>
        
         <a href="#education">Journey</a>
@@ -1802,7 +1952,6 @@ footer{
 
 <section id="about" class="section">
 
-
     <div class="section-heading reveal">
 
         <div class="mini">
@@ -1821,112 +1970,219 @@ footer{
     </div>
 
 
-
     <div class="about-grid">
 
-
+        <!-- WHO I AM -->
         <div class="glass about-card reveal">
 
-            <h3>
-                Who I Am
-            </h3>
+            <h3>Who I Am</h3>
 
             <p>
-
                 I am a Computer Science student passionate
                 about software development, web technologies,
                 cybersecurity and problem solving.
-
             </p>
 
             <p>
-
                 I enjoy building projects that combine
                 creativity, technology and user-friendly
                 design.
-
             </p>
 
             <p>
-
                 My goal is to continuously improve my
                 technical knowledge and create useful
                 real-world applications.
-
             </p>
 
         </div>
 
 
-
+        <!-- MY GOALS -->
         <div class="glass about-card reveal">
 
-            <h3>
-                My Goals
-            </h3>
-
+            <h3>My Goals</h3>
 
             <div class="goal">
+                <span class="goal-number">01</span>
+                <p>Improve programming skills</p>
+            </div>
 
-                <span class="goal-number">
-                    01
+            <div class="goal">
+                <span class="goal-number">02</span>
+                <p>Build real-world projects</p>
+            </div>
+
+            <div class="goal">
+                <span class="goal-number">03</span>
+                <p>Explore cybersecurity</p>
+            </div>
+
+            <div class="goal">
+                <span class="goal-number">04</span>
+                <p>Grow as a professional developer</p>
+            </div>
+
+        </div>
+
+
+        <!-- FREELANCE -->
+        <div class="glass freelance-card reveal">
+
+            <div class="freelance-icon">✦</div>
+
+            <div>
+
+                <span class="freelance-label">
+                    AVAILABLE FOR FREELANCE WORK
                 </span>
 
+                <h3>Freelance Web Developer</h3>
+
                 <p>
-                    Improve programming skills
+                    I create modern, responsive and user-focused
+                    websites and web applications. I enjoy transforming
+                    ideas into practical digital solutions with clean
+                    design, interactive experiences and a strong focus
+                    on usability.
                 </p>
 
             </div>
 
+        </div>
 
-            <div class="goal">
+    </div>
 
-                <span class="goal-number">
-                    02
-                </span>
-
-                <p>
-                    Build real-world projects
-                </p>
-
-            </div>
+</section>
 
 
-            <div class="goal">
+<!-- =====================================================
+     STRENGTHS
+===================================================== -->
 
-                <span class="goal-number">
-                    03
-                </span>
+<section id="strengths" class="section">
 
-                <p>
-                    Explore cybersecurity
-                </p>
+    <div class="section-heading reveal">
 
-            </div>
+        <div class="mini">
+            MY STRENGTHS
+        </div>
+
+        <h2>
+            What I Bring to <span>Every Project</span>
+        </h2>
+
+        <p>
+            The qualities and skills I use to turn ideas
+            into practical and user-focused solutions.
+        </p>
+
+    </div>
 
 
-            <div class="goal">
+    <div class="strengths-grid">
 
-                <span class="goal-number">
-                    04
-                </span>
 
-                <p>
-                    Become a professional developer
-                </p>
+        <!-- STRENGTH 01 -->
+        <div class="glass strength-card reveal">
 
-            </div>
+            <span class="strength-number">01</span>
+
+            <h3>Creative Problem-Solving</h3>
+
+            <p>
+                I approach challenges with creative thinking
+                and focus on finding practical and effective
+                solutions.
+            </p>
+
+        </div>
+
+
+        <!-- STRENGTH 02 -->
+        <div class="glass strength-card reveal">
+
+            <span class="strength-number">02</span>
+
+            <h3>Quick Learner</h3>
+
+            <p>
+                I quickly adapt to new tools, technologies
+                and concepts while continuously improving
+                my technical skills.
+            </p>
+
+        </div>
+
+
+        <!-- STRENGTH 03 -->
+        <div class="glass strength-card reveal">
+
+            <span class="strength-number">03</span>
+
+            <h3>Practical Project Development</h3>
+
+            <p>
+                I enjoy transforming ideas and requirements
+                into functional projects and practical
+                digital solutions.
+            </p>
+
+        </div>
+
+
+        <!-- STRENGTH 04 -->
+        <div class="glass strength-card reveal">
+
+            <span class="strength-number">04</span>
+
+            <h3>Exploring New Technologies</h3>
+
+            <p>
+                I actively explore modern technologies,
+                AI tools and new development practices
+                to expand my knowledge.
+            </p>
+
+        </div>
+
+
+        <!-- STRENGTH 05 -->
+        <div class="glass strength-card reveal">
+
+            <span class="strength-number">05</span>
+
+            <h3>User-Focused Design</h3>
+
+            <p>
+                I focus on creating clean, responsive and
+                easy-to-use experiences that provide real
+                value to users.
+            </p>
+
+        </div>
+
+
+        <!-- STRENGTH 06 -->
+        <div class="glass strength-card reveal">
+
+            <span class="strength-number">06</span>
+
+            <h3>Professional & Freelance Mindset</h3>
+
+            <p>
+                I understand the importance of project
+                requirements, quality, communication and
+                delivering useful solutions.
+            </p>
 
         </div>
 
 
     </div>
 
-
 </section>
-
-
-
+   
 <!-- =====================================================
      SKILLS
 ===================================================== -->
@@ -2269,6 +2525,70 @@ footer{
 
         </div>
 
+       <!-- AI PROJECT 1 -->
+<div class="project-card">
+
+    <div class="project-content">
+
+        <span class="project-number">04</span>
+
+        <h3>AI-Powered Web Application</h3>
+
+        <p>
+            Developed an interactive AI-powered web application using modern
+            technologies. The project focuses on providing a practical,
+            user-friendly experience and demonstrates my ability to explore
+            AI tools and transform ideas into functional applications.
+        </p>
+
+        <div class="project-tags">
+            <span>Artificial Intelligence</span>
+            <span>Web Development</span>
+            <span>UI/UX</span>
+        </div>
+
+        <a href="https://ai.studio/apps/f27561b0-821a-4b62-8a11-a831d1266f86"
+           target="_blank"
+           class="project-link">
+            View Project →
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- AI PROJECT 2 - ATTENDANCE HUB -->
+<div class="project-card">
+
+    <div class="project-content">
+
+        <span class="project-number">05</span>
+
+        <h3>Attendance Hub</h3>
+
+        <p>
+            Built a student-focused attendance management application designed
+            to provide a simple and practical way to organize and monitor
+            attendance information. The project emphasizes usability,
+            practical problem-solving and user-focused design.
+        </p>
+
+        <div class="project-tags">
+            <span>AI</span>
+            <span>Web Application</span>
+            <span>Student Tool</span>
+        </div>
+
+        <a href="https://aistudio.google.com/apps/ba8ba6db-2dbe-4b9e-a4e7-f64823f1787b?showAssistant=true&showPreview=true&project=attendance-hub-f8972"
+           target="_blank"
+           class="project-link">
+            View Project →
+        </a>
+
+    </div>
+
+</div>
 
 
         <!-- PROJECT 3 -->
